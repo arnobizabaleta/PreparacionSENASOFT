@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+                
+                    <form action="@Url.Action("Index","Acceso")" method="post" class="bg-info" style="padding:1em;">
+                        
+                        <div class="form-group">
+                            <label>Correo:</label>
+                            <input type="email" name="correo" class="form-control"  placeholder="nm@mail.com" required="" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Contraseña:</label>
+                            <input type="password" name="clave" class="form-control" placeholder="" required="" />
+                        </div>
+                        <p>Aún no tienes una cuenta? @Html.ActionLink("Registrate","Registrar","Acceso")</p>
+                        @if (ViewData["Mensaje"] !=null)
+            {
+                            <div class="alert alert-danger" role="alert">
+                                @ViewData["Mensaje"]
+                            </div>
+            }
+                        <button type="submit" class="btn btn-success">Ingresar</button>
+                    </form>
+               
+
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>
